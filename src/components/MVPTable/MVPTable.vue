@@ -10,12 +10,24 @@
         <th scope="col"></th>
       </tr>
     </thead>
-    <tbody class="table-hover"></tbody>
+    <tbody class="table-hover">
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
   </table>
 </template>
 <script>
+import { mapState } from "vuex";
+
 export default {
-  name: 'MVPTable'
+  name: "MVPTable",
+  computed: mapState(["mvp_list"]),
 };
 </script>
 <style></style>
