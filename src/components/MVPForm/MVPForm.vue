@@ -1,16 +1,16 @@
 <template>
   <div>
-    <form class="form">
+    <form class="form" @submit="updateMVPTimerList($event)">
       <div class="row my-3">
         <div class="col-md-12">
           <label for="mvp-list" class="form-label">Pick a MVP</label>
-          <MVPListSelect />
+          <MVPListSelect v-model="mvp_id" />
         </div>
       </div>
       <div class="row my-3">
         <div class="col-md-12">
           <label for="mvp-list" class="form-label">Pick a Map</label>
-          <MVPMapListSelect />
+          <MVPMapListSelect v-model="mvp_map" />
         </div>
       </div>
       <div class="row my-3">
@@ -19,6 +19,7 @@
             >X Position (optional)</label
           >
           <input
+            v-model="coord_x"
             type="text"
             class="form-control"
             name="position-x"
@@ -31,6 +32,7 @@
             >Y Position (optional)</label
           >
           <input
+            v-model="coord_y"
             type="text"
             class="form-control"
             name="position-y"
@@ -40,7 +42,7 @@
         </div>
         <div class="col-md-4">
           <label for="hour" class="form-label">Hour</label>
-          <HourInput />
+          <HourInput v-model="this.hour" />
         </div>
       </div>
       <div class="col-md-12">
@@ -62,10 +64,26 @@ import HourInput from "@/components/MVPForm/HourInput";
 
 export default {
   name: "MVPForm",
+  data() {
+    return {
+      mvp_id: 0,
+      mvp_map: "",
+      coord_x: null,
+      coord_y: null,
+      hour: "",
+    };
+  },
   components: {
     MVPListSelect,
     MVPMapListSelect,
     HourInput,
+  },
+  methods: {
+    updateMVPTimerList: function (event) {
+      event.preventDefault();
+      alert(this.hour);
+      return;
+    },
   },
 };
 </script>

@@ -15,11 +15,15 @@
 import { mapState, mapMutations } from "vuex";
 export default {
   name: "MVPListSelect",
+  props: {
+    modelValue: String,
+  },
   computed: mapState(["mvp_list"]),
   methods: {
     ...mapMutations(["setCurrentMvpId"]),
     changeMVP: function (event) {
       this.setCurrentMvpId(event.target.value);
+      this.$emit("update:modelValue", event.target.value);
     },
   },
 };
