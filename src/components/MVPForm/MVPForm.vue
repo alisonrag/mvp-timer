@@ -42,7 +42,7 @@
         </div>
         <div class="col-md-4">
           <label for="hour" class="form-label">Hour</label>
-          <HourInput v-model="this.hour" />
+          <HourInput v-model="hour" />
         </div>
       </div>
       <div class="col-md-12">
