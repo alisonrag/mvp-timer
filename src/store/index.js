@@ -3,6 +3,7 @@ import { createStore } from "vuex";
 export default createStore({
   state: {
     current_mvp_id: 0,
+    mvp_timer_list: [],
     mvp_list: [
       {
         name: "Orc Hero",
@@ -302,6 +303,9 @@ export default createStore({
   mutations: {
     setCurrentMvpId(state, id) {
       state.current_mvp_id = id;
+    },
+    addMVPRow(state, mvp) {
+      state.mvp_timer_list.push(mvp);
     },
   },
   actions: {},

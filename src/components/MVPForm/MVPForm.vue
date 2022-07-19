@@ -1,5 +1,6 @@
 <template>
   <div>
+    <p class="text-danger">{{ errors }}</p>
     <form class="form" @submit="updateMVPTimerList($event)">
       <div class="row my-3">
         <div class="col-md-12">
@@ -61,16 +62,18 @@
 import MVPListSelect from "@/components/MVPForm/MVPListSelect";
 import MVPMapListSelect from "@/components/MVPForm/MVPMapListSelect";
 import HourInput from "@/components/MVPForm/HourInput";
+import { mapGetters, mapMutations } from "vuex";
 
 export default {
   name: "MVPForm",
   data() {
     return {
-      mvp_id: 0,
+      mvp_id: "0",
       mvp_map: "",
       coord_x: null,
       coord_y: null,
       hour: "",
+      errors: "",
     };
   },
   components: {
@@ -78,10 +81,42 @@ export default {
     MVPMapListSelect,
     HourInput,
   },
+  computed: {
+    ...mapGetters(["getMVPById"]),
+  },
   methods: {
+     ...mapMutations(["addMVPRow"]),
     updateMVPTimerList: function (event) {
       event.preventDefault();
-      alert(this.hour);
+      if (this.mvp_id == 0 || this.mvp_map === "") {
+        this.errors = "Please Select MVP and Map";
+      } else {
+        this.errors = "";
+        let mvp = this.getMVPById(this.mvp_id);
+        let respawn = mvp.respawn.find(
+          (respawn) => respawn.map === this.mvp_map
+        );
+        let died_time = new Date();
+        if (this.hour.length == 5) {
+          // 00:00
+          let hours = this.hour.split(":")[0];
+          let minutes = this.hour.split(":")[1];
+          if (hours >= 0 && hours <= 23) died_time.setHours(hours);
+          if (minutes >= 0 && minutes <= 59) died_time.setMinutes(minutes);
+        }
+        // convert hour
+        this.addMVPRow({
+          id: this.mvp_id,
+          name: mvp.name,
+          map: respawn.map,
+          delay: respawn.delay,
+          variance: respawn.variance,
+          x: this.coord_x,
+          y: this.coord_y,
+          datetime: died_time.toLocaleString("en-GB", {}),
+          timer_id: 0,
+        });
+      }
       return;
     },
   },
