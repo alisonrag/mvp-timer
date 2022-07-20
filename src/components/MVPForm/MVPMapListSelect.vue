@@ -32,7 +32,7 @@ export default {
       if (id == 0) {
         this.map_list = [];
       } else {
-        let mvp = this.getMVPById(id);
+        let mvp = this.getMVPById(parseInt(id));
         this.map_list = mvp.respawn;
         this.$emit("update:modelValue", this.map_list[0].map);
       }
