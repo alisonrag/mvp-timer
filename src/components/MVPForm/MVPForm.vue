@@ -95,7 +95,7 @@ export default {
         this.errors = "Please Select MVP and Map";
       } else {
         this.errors = "";
-        let mvp = this.getMVPById(this.mvp_id);
+        let mvp = this.getMVPById(parseInt(this.mvp_id));
         let respawn = mvp.respawn.find(
           (respawn) => respawn.map === this.mvp_map
         );
