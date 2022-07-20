@@ -1,7 +1,7 @@
 <template>
   <table class="table table-responsive" id="mvp-table" name="mvp-table">
     <thead class="thead-dark">
-      <tr>
+      <tr class="table-text-vertical-middle">
         <th scope="col"></th>
         <th scope="col">
           Name <i class="fa-solid fa-filter" @click="sortByName"></i>
