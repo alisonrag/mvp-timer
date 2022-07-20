@@ -98,13 +98,11 @@ export default {
         );
         let died_time = new Date();
         if (this.hour.length == 5) {
-          // 00:00
           let hours = this.hour.split(":")[0];
           let minutes = this.hour.split(":")[1];
           if (hours >= 0 && hours <= 23) died_time.setHours(hours);
           if (minutes >= 0 && minutes <= 59) died_time.setMinutes(minutes);
         }
-        // convert hour
         this.addMVPRow({
           id: this.mvp_id,
           name: mvp.name,
@@ -113,8 +111,10 @@ export default {
           variance: respawn.variance,
           x: this.coord_x,
           y: this.coord_y,
-          datetime: died_time.toLocaleString("en-GB", {}),
-          timer_id: 0,
+          died_time: died_time,
+          countdown: "",          
+          alive: false,
+          next_respawn: 0,
         });
       }
       return;
