@@ -12,12 +12,12 @@
             />
           </div>
         </div>
-        <hr />
-        <div class="row">
+       <div class="row">
           <div class="col-md-12">
             <MVPForm />
           </div>
         </div>
+         <hr />
         <div class="row">
           <div class="col-md-12">
             <MVPTable />
