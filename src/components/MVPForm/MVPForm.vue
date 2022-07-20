@@ -84,8 +84,11 @@ export default {
   computed: {
     ...mapGetters(["getMVPById"]),
   },
+  mounted() {
+    this.loadMVPListFromLocalStorage();
+  },
   methods: {
-     ...mapMutations(["addMVPRow"]),
+    ...mapMutations(["addMVPRow", "loadMVPListFromLocalStorage", "saveMVPListInLocalStorage"]),
     updateMVPTimerList: function (event) {
       event.preventDefault();
       if (this.mvp_id == 0 || this.mvp_map === "") {
@@ -112,11 +115,12 @@ export default {
           x: this.coord_x,
           y: this.coord_y,
           died_time: died_time,
-          countdown: "",          
+          countdown: "",
           alive: false,
           next_respawn: 0,
           alerted: false,
         });
+        this.saveMVPListInLocalStorage();
       }
       return;
     },

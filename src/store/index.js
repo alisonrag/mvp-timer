@@ -307,6 +307,23 @@ export default createStore({
     addMVPRow(state, mvp) {
       state.mvp_timer_list.push(mvp);
     },
+    loadMVPListFromLocalStorage(state) {
+      let mvp_timer_list = localStorage.getItem("mvp_timer_list");
+
+      if (mvp_timer_list != null) {
+        let mvp_timers = JSON.parse(mvp_timer_list);
+        mvp_timers.forEach(function (mvp) {
+          mvp.died_time = new Date(mvp.died_time);
+          state.mvp_timer_list.push(mvp);
+        });
+      }
+    },
+    saveMVPListInLocalStorage(state) {
+      localStorage.setItem(
+        "mvp_timer_list",
+        JSON.stringify(state.mvp_timer_list)
+      );
+    },
   },
   actions: {},
   modules: {},
