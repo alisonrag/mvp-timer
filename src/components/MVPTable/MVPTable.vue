@@ -97,8 +97,15 @@ export default {
         mvp_timer.countdown =
           Math.abs(hours) + ":" + Math.abs(minutes) + ":" + Math.abs(seconds);
 
-        if (real_seconds < 0) mvp_timer.alive = true;
-        else mvp_timer.alive = false;
+        if (real_seconds < 0) {
+          mvp_timer.alive = true;
+          if (mvp_timer.alerted == false) {
+            document.getElementById("mvp-sound").play();
+            mvp_timer.alerted = true;
+          }
+        } else {
+          mvp_timer.alive = false;
+        }
 
         let percent = 0;
         let milliseconds = differenceInMilliseconds(new Date(), variance_time);
@@ -114,6 +121,7 @@ export default {
     },
     renewTimer: function (index) {
       this.mvp_timer_list[index].died_time = new Date();
+      this.mvp_timer_list[index].alerted = false;
     },
     removeTimer: function (index) {
       this.mvp_timer_list.splice(index, 1);
@@ -125,7 +133,11 @@ export default {
     },
     sortByTimer: function () {
       this.mvp_timer_list.sort((a, b) =>
-        a.next_respawn < b.next_respawn ? 1 : b.next_respawn < a.next_respawn ? -1 : 0
+        a.next_respawn < b.next_respawn
+          ? 1
+          : b.next_respawn < a.next_respawn
+          ? -1
+          : 0
       );
     },
   },

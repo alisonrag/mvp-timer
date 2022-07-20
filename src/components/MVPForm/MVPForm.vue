@@ -115,6 +115,7 @@ export default {
           countdown: "",          
           alive: false,
           next_respawn: 0,
+          alerted: false,
         });
       }
       return;
