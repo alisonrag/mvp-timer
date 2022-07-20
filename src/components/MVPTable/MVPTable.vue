@@ -55,7 +55,7 @@
   </table>
 </template>
 <script>
-import { mapState } from "vuex";
+import { mapState, mapMutations } from "vuex";
 import { addMilliseconds } from "date-fns/fp";
 import {
   differenceInHours,
@@ -68,6 +68,7 @@ export default {
   name: "MVPTable",
   computed: mapState(["mvp_timer_list"]),
   methods: {
+    ...mapMutations(["saveMVPListInLocalStorage"]),
     getLocationString: function (mvp) {
       let location_string = mvp.map;
       if (parseInt(mvp.x) > 0 && parseInt(mvp.y) > 0)
@@ -122,9 +123,11 @@ export default {
     renewTimer: function (index) {
       this.mvp_timer_list[index].died_time = new Date();
       this.mvp_timer_list[index].alerted = false;
+      this.saveMVPListInLocalStorage();
     },
     removeTimer: function (index) {
       this.mvp_timer_list.splice(index, 1);
+      this.saveMVPListInLocalStorage();
     },
     sortByName: function () {
       this.mvp_timer_list.sort((a, b) =>
@@ -153,6 +156,7 @@ export default {
 }
 .table-text-vertical-middle {
   vertical-align: middle;
+  text-align: center;
 }
 .fa-rotate {
   color: #0d6efd;
