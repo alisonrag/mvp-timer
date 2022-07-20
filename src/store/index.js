@@ -24,9 +24,23 @@ export default createStore({
         respawn: [{ map: "moc_prydn2", delay: "3600000", variance: "600000" }],
       },
       {
+        id: 1096,
+        name: "Angeling",
+        respawn: [
+          { map: "pay_fild04", delay: 3600000, variance: 1800000 },
+          { map: "yuno_fild03", delay: 3600000, variance: 1800000 },
+          { map: "xmas_dun01", delay: 3600000, variance: 1800000 },
+        ],
+      },
+      {
         name: "Aprendiz",
         id: 2441,
         respawn: [{ map: "teg_dun01", delay: "28800000", variance: "0" }],
+      },
+      {
+        id: 1388,
+        name: "Arc Angeling",
+        respawn: [{ map: "yuno_fild05", delay: 3600000, variance: 180000 }],
       },
       {
         name: "Atroce",
@@ -53,6 +67,11 @@ export default createStore({
         respawn: [{ mapname: "gl_cas02_", delay: 7200000, variance: 0 }],
       },
       {
+        id: 1873,
+        name: "Belzebu",
+        respawn: [{ map: "abbey03", delay: 43200000, variance: 600000 }],
+      },
+      {
         name: "Besouro-Ladrão Dourado",
         id: 1086,
         respawn: [{ map: "prt_sewb4", delay: "3600000", variance: "600000" }],
@@ -76,6 +95,14 @@ export default createStore({
         name: "Detardeurus",
         id: 1719,
         respawn: [{ map: "abyss_03", delay: "10800000", variance: "600000" }],
+      },
+      {
+        id: 1582,
+        name: "Deviling",
+        respawn: [
+          { map: "pay_fild04", delay: 7200000, variance: 3600000 },
+          { map: "yuno_fild03", delay: 3600000, variance: 1800000 },
+        ],
       },
       {
         name: "Doppelganger",
@@ -137,6 +164,16 @@ export default createStore({
         respawn: [{ map: "tur_dun04", delay: "3600000", variance: "600000" }],
       },
       {
+        id: 1120,
+        name: "Ghostring",
+        respawn: [
+          { map: "pay_fild04", delay: 3600000, variance: 1800000 },
+          { map: "gld_dun04", delay: 14400000, variance: 7200000 },
+          { map: "prt_maze03", delay: 6800000, variance: 3400000 },
+          { map: "treasure02", delay: 1980000, variance: 1200000 },
+        ],
+      },
+      {
         name: "Gioia",
         id: 2251,
         respawn: [{ map: "gld2_ald", delay: "28800000", variance: "600000" }],
@@ -195,6 +232,11 @@ export default createStore({
         ],
       },
       {
+        id: 1289,
+        name: "Maya Macho",
+        respawn: [{ map: "anthell01", delay: 7200000, variance: 0 }],
+      },
+      {
         name: "Morroc Ferido",
         id: 1917,
         respawn: [{ map: "moc_fild22", delay: "43200000", variance: "600000" }],
@@ -226,13 +268,13 @@ export default createStore({
       },
       {
         name: "Rainha Scaraba",
-        id: 2165,
-        respawn: [{ map: "dic_dun03", delay: "7200000", variance: "0" }],
+        id: 2087,
+        respawn: [{ map: "dic_dun02", delay: "7200000", variance: "0" }],
       },
       {
         name: "Rainha Scaraba",
-        id: 2087,
-        respawn: [{ map: "dic_dun02", delay: "7200000", variance: "0" }],
+        id: 2165,
+        respawn: [{ map: "dic_dun03", delay: "7200000", variance: "0" }],
       },
       {
         name: "RSX-0806",
