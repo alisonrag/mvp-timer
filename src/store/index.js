@@ -264,7 +264,7 @@ export default createStore({
       {
         name: "Quimera Venenosa",
         id: 3633,
-        respawn: [{ mapname: "slabw01", delay: 5000, variance: 0 }],
+        respawn: [{ mapname: "slabw01", delay: "3600000", variance: "600000" }],
       },
       {
         name: "Rainha Scaraba",
