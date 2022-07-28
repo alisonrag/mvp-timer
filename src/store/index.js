@@ -64,7 +64,7 @@ export default createStore({
       {
         name: "Bafomé Amaldiçoado",
         id: 2483,
-        respawn: [{ mapname: "gl_cas02_", delay: 7200000, variance: 0 }],
+        respawn: [{ map: "gl_cas02_", delay: 7200000, variance: 0 }],
       },
       {
         id: 1873,
@@ -264,7 +264,7 @@ export default createStore({
       {
         name: "Quimera Venenosa",
         id: 3633,
-        respawn: [{ mapname: "slabw01", delay: "3600000", variance: "600000" }],
+        respawn: [{ map: "slabw01", delay: "3600000", variance: "600000" }],
       },
       {
         name: "Rainha Scaraba",
@@ -298,7 +298,7 @@ export default createStore({
       {
         name: "Senhor dos Mortos",
         id: 1373,
-        respawn: [{ mapname: "niflheim", delay: 7980000, variance: 0 }],
+        respawn: [{ map: "niflheim", delay: 7980000, variance: 0 }],
       },
       {
         name: "Senhor dos Orcs",
